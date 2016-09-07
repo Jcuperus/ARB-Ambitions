@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class MenuManager : MonoBehaviour {
 	public Canvas victoryCanvas;
 	public Canvas ingameCanvas;
 
+	public Text livesValueText;
 	// Use this for initialization
 	void Start () {
 
@@ -86,6 +88,7 @@ public class MenuManager : MonoBehaviour {
 		// show
 		if (v) {
 			Main.InitGame ();
+			livesValueText.text = Main.lives.ToString();
 			ingameCanvas.gameObject.SetActive (true);
 			return;
 		}
