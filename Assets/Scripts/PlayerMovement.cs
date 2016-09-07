@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour {
             CanJump = true;
             JumpTime = MaxJumpTime;
         }
-    }
+    }   
 
     void FixedUpdate()
     {
