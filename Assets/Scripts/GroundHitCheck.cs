@@ -9,6 +9,6 @@ public class GroundHitCheck : MonoBehaviour {
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 1, ground_layers);
+        isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 1.3f, ground_layers);
     }
 }

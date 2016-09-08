@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
-    public Animation walkAnimation;
-    public Animation jumpAnimation;
     private float move = 0f;
     private float JumpTime = 0f;
     private bool CanJump;
@@ -66,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void animationToggle()
     {
-        anim.enabled = rb.velocity.x != 0;
+         anim.enabled = rb.velocity.x != 0;
 
         //if (rb.velocity.y != 0)
         //{
