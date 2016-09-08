@@ -56,6 +56,7 @@ public class Laser : MonoBehaviour {
         //TODO: Damage the player
         if (source.name == "Player" && isActive)
         {
+            Main.lives -= 1;
             Debug.Log("damage");
         }
     }
