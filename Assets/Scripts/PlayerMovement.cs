@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour {
     public float MaxJumpTime = 2f;
     public float JumpForce;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Animator anim;
+    public Animation walkAnimation;
+    public Animation jumpAnimation;
     private float move = 0f;
     private float JumpTime = 0f;
     private bool CanJump;
@@ -14,6 +18,8 @@ public class PlayerMovement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         JumpTime = MaxJumpTime;
     }
 	
@@ -27,6 +33,8 @@ public class PlayerMovement : MonoBehaviour {
             CanJump = true;
             JumpTime = MaxJumpTime;
         }
+
+
     }
 
     void FixedUpdate()
@@ -39,5 +47,30 @@ public class PlayerMovement : MonoBehaviour {
             CanJump = false;
             JumpTime = MaxJumpTime;
         }
+
+        animationToggle();
+        flipSprite();
+    }
+    
+    void flipSprite()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            sr.flipX = true;
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            sr.flipX = false;
+        }
+    }
+
+    void animationToggle()
+    {
+        anim.enabled = rb.velocity.x != 0;
+
+        //if (rb.velocity.y != 0)
+        //{
+        //    jumpAnimation.Play();
+        //}
     }
 }
