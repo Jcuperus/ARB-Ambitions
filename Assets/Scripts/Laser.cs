@@ -10,9 +10,11 @@ public class Laser : MonoBehaviour {
     public bool isHorizontal = false;
     public Vector3 endPoint = new Vector3(0, -5, 0);
     public bool useWorldSpace = false;
-    
+    public Material laserMaterial;
+
     private LineRenderer ln;
     private BoxCollider2D col;
+    
 
 
     // Use this for initialization
@@ -21,6 +23,7 @@ public class Laser : MonoBehaviour {
         col = gameObject.AddComponent<BoxCollider2D>();
 
         ln.useWorldSpace = useWorldSpace;
+        ln.material = laserMaterial;
         ln.SetWidth(width, width);
         ln.SetVertexCount(2);
         ln.SetPositions(new Vector3[] {
@@ -63,11 +66,11 @@ public class Laser : MonoBehaviour {
 
         if (isActive)
         {
-            ln.SetColors(new Color(255, 0, 0, 255), new Color(255, 0, 0, 255));
+            ln.SetColors(new Color(255, 0, 0, 120), new Color(255, 0, 0, 120));
         }
         else
         {
-            ln.SetColors(new Color(0,255, 0, 255), new Color(0, 255, 0, 255));
+            ln.SetColors(new Color(255, 0, 0, 0), new Color(255, 0, 0, 0));
         }
     }
 }
